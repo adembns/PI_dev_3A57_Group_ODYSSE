@@ -1,0 +1,603 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HotelController!{% endblock %}
+
+{% block body %}
+<!-- ======================= Start Page Title ===================== -->
+		<div class="page-title image-title" style="background-image:url(assets/img/hotel.jpg);">
+			<div class="container">
+				<div class="page-title-wrap">
+				<h2>Hotel List</h2>
+				<p><a href="#" class="theme-cl">Home</a> | <span>Hotel List</span></p>
+				</div>
+			</div>
+		</div>
+		<!-- ======================= End Page Title ===================== -->
+		
+		<!-- =========== Start All Hotel In Grid View =================== -->
+		<section class="gray-bg">
+			<div class="container">
+			
+				<!-- Row -->
+				<div class="row mrg-0">
+					<div class="tr-single-box short-box">
+						<div class="col-sm-3 hidden-xs align-self-center">
+							<h4>Shorty By</h4>
+						</div>
+						
+						<div class="col-sm-9 text-right">
+						
+							<div class="btn-group mr-lg-2">
+								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Short By
+								</button>
+								<div class="dropdown-menu pull-right animated flipInX">
+									<a href="#">Accending</a>
+									<a href="#">Decending</a>
+									<a href="#">By Date</a>
+								</div>
+							</div>
+							
+							<div class="btn-group">
+								 <a href="hotel-grid.html" class="btn btn-default tooltips">
+									 <i class="ti-flix ti-layout-grid2"></i>
+								 </a>
+							</div>
+
+							<div class="btn-group">
+								 <a href="hotel-list.html" class="btn btn-default tooltips">
+									 <i class="ti-flix ti-view-list-alt"></i>
+								 </a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /Row -->
+				
+				<div class="row">
+					
+					<!-- Singl hotel List -->
+					<div class="col-lg-6 col-md-6">
+						<article class="hotel-box list-style">
+							<div class="row">
+								
+								<div class="col-md-5 col-sm-5">
+									<div class="hotel-box-image">
+										<a href="hotel-detail.html">
+											<img src="assets/img/hotel/hotel-1.jpg" class="img-responsive hotel-box-img" alt="">
+										</a>
+										<div class="entry-bookmark">                                   
+											<a href="#"><i class="ti-bookmark"></i></a>
+										</div>
+										<h4 class="hotel-place">
+											<a href="#">Netherlands</a>
+										</h4>
+										<span class="featured-tour"><i class="fa fa-star"></i></span>
+									</div>
+								</div>
+							
+								<div class="col-md-7 col-sm-7">	
+									<div class="inner-box">
+										<div class="discount-flick">-12%</div>
+										<div class="box-inner-ellipsis">
+											<div style="margin: 0px; padding: 0px; border: 0px;">
+												<h3 class="entry-title">
+													<a href="hotel-detail.html">Antique Resort</a>
+												</h3>
+												<div class="entry-content">
+													<p>Post A Job To Tell Us About Your Project. We'll Quickly Match You With The Right Freelancers.</p>
+													<span class="price">From <strong class="theme-cl">$254</strong> /per person</span>
+												</div>
+											</div>
+										</div>
+										
+										<div class="entry-meta">
+											<div class="meta-item meta-author">
+												<div class="hotel-review entry-location">
+													<span class="review-status bg-warning"><i class="ti-check"></i></span>
+													<h6><span class="cl-warning font-bold">fair</span>1050 Review</h6>
+												</div>
+											</div>
+											<div class="meta-item meta-comment fl-right">
+												<div class="view-box">
+													<div class="fl-right">
+														<span><i class="ti-eye padd-r-5"></i>782</span>
+													</div>
+												</div>
+											</div>
+											<div class="meta-item meta-rating fl-right">
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star-half"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							
+							</div>
+
+						</article>
+					</div>
+					
+					<!-- Singl hotel List -->
+					<div class="col-lg-6 col-md-6">
+						<article class="hotel-box list-style">
+							<div class="row">
+								
+								<div class="col-md-5 col-sm-5">
+									<div class="hotel-box-image">
+										<a href="hotel-detail.html">
+											<img src="assets/img/hotel/hotel-2.jpg" class="img-responsive hotel-box-img" alt="">
+										</a>
+										<div class="entry-bookmark">                                   
+											<a href="#"><i class="ti-bookmark"></i></a>
+										</div>
+										<h4 class="hotel-place">
+											<a href="#">Saudi Arabia</a>
+										</h4>
+									</div>
+								</div>
+							
+								<div class="col-md-7 col-sm-7">	
+									<div class="inner-box">
+										<div class="discount-flick">-13%</div>
+										<div class="box-inner-ellipsis">
+											<div style="margin: 0px; padding: 0px; border: 0px;">
+												<h3 class="entry-title">
+													<a href="hotel-detail.html">Iceberg Resort</a>
+												</h3>
+												<div class="entry-content">
+													<p>Post A Job To Tell Us About Your Project. We'll Quickly Match You With The Right Freelancers.</p>
+													<span class="price">From <strong class="theme-cl">$220</strong> /per person</span>
+												</div>
+											</div>
+										</div>
+										
+										<div class="entry-meta">
+											<div class="meta-item meta-author">
+												<div class="hotel-review entry-location">
+													<span class="review-status bg-success"><i class="ti-check"></i></span>
+													<h6><span class="cl-success font-bold">Good</span>1062 Review</h6>
+												</div>
+											</div>
+											<div class="meta-item meta-comment fl-right">
+												<div class="view-box">
+													<div class="fl-right">
+														<span><i class="ti-eye padd-r-5"></i>1782</span>
+													</div>
+												</div>
+											</div>
+											<div class="meta-item meta-rating fl-right">
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star-half"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							
+							</div>
+
+						</article>
+					</div>
+					
+					<!-- Singl hotel List -->
+					<div class="col-lg-6 col-md-6">
+						<article class="hotel-box list-style">
+							<div class="row">
+								
+								<div class="col-md-5 col-sm-5">
+									<div class="hotel-box-image">
+										<a href="hotel-detail.html">
+											<img src="assets/img/hotel/hotel-3.jpg" class="img-responsive hotel-box-img" alt="">
+										</a>
+										<div class="entry-bookmark">                                   
+											<a href="#"><i class="ti-bookmark"></i></a>
+										</div>
+										<h4 class="hotel-place">
+											<a href="#">United States</a>
+										</h4>
+										<span class="featured-tour"><i class="fa fa-star"></i></span>
+									</div>
+								</div>
+							
+								<div class="col-md-7 col-sm-7">	
+									<div class="inner-box">
+										<div class="discount-flick">-10%</div>
+										<div class="box-inner-ellipsis">
+											<div style="margin: 0px; padding: 0px; border: 0px;">
+												<h3 class="entry-title">
+													<a href="hotel-detail.html">Vision Motel</a>
+												</h3>
+												<div class="entry-content">
+													<p>Post A Job To Tell Us About Your Project. We'll Quickly Match You With The Right Freelancers.</p>
+													<span class="price">From <strong class="theme-cl">$424</strong> /per person</span>
+												</div>
+											</div>
+										</div>
+										
+										<div class="entry-meta">
+											<div class="meta-item meta-author">
+												<div class="hotel-review entry-location">
+													<span class="review-status bg-info"><i class="ti-check"></i></span>
+													<h6><span class="cl-info font-bold">superb</span>1362 Review</h6>
+												</div>
+											</div>
+											<div class="meta-item meta-comment fl-right">
+												<div class="view-box">
+													<div class="fl-right">
+														<span><i class="ti-eye padd-r-5"></i>7254</span>
+													</div>
+												</div>
+											</div>
+											<div class="meta-item meta-rating fl-right">
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star-half"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							
+							</div>
+
+						</article>
+					</div>
+					
+					<!-- Singl hotel List -->
+					<div class="col-lg-6 col-md-6">
+						<article class="hotel-box list-style">
+							<div class="row">
+								
+								<div class="col-md-5 col-sm-5">
+									<div class="hotel-box-image">
+										<a href="hotel-detail.html">
+											<img src="assets/img/hotel/hotel-4.jpg" class="img-responsive hotel-box-img" alt="">
+										</a>
+										<div class="entry-bookmark">                                   
+											<a href="#"><i class="ti-bookmark"></i></a>
+										</div>
+										<h4 class="hotel-place">
+											<a href="#">San Marino</a>
+										</h4>
+										<span class="featured-tour"><i class="fa fa-star"></i></span>
+									</div>
+								</div>
+							
+								<div class="col-md-7 col-sm-7">	
+									<div class="inner-box">
+										<div class="discount-flick">-12%</div>
+										<div class="box-inner-ellipsis">
+											<div style="margin: 0px; padding: 0px; border: 0px;">
+												<h3 class="entry-title">
+													<a href="hotel-detail.html">Monsoon Motel</a>
+												</h3>
+												<div class="entry-content">
+													<p>Post A Job To Tell Us About Your Project. We'll Quickly Match You With The Right Freelancers.</p>
+													<span class="price">From <strong class="theme-cl">$324</strong> /per person</span>
+												</div>
+											</div>
+										</div>
+										
+										<div class="entry-meta">
+											<div class="meta-item meta-author">
+												<div class="hotel-review entry-location">
+													<span class="review-status bg-danger"><i class="ti-check"></i></span>
+													<h6><span class="cl-danger font-bold">poor</span>1240 Review</h6>
+												</div>
+											</div>
+											<div class="meta-item meta-comment fl-right">
+												<div class="view-box">
+													<div class="fl-right">
+														<span><i class="ti-eye padd-r-5"></i>2412</span>
+													</div>
+												</div>
+											</div>
+											<div class="meta-item meta-rating fl-right">
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star-half"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							
+							</div>
+
+						</article>
+					</div>
+					
+					<!-- Singl hotel List -->
+					<div class="col-lg-6 col-md-6">
+						<article class="hotel-box list-style">
+							<div class="row">
+								
+								<div class="col-md-5 col-sm-5">
+									<div class="hotel-box-image">
+										<a href="hotel-detail.html">
+											<img src="assets/img/hotel/hotel-5.jpg" class="img-responsive hotel-box-img" alt="">
+										</a>
+										<div class="entry-bookmark">                                   
+											<a href="#"><i class="ti-bookmark"></i></a>
+										</div>
+										<h4 class="hotel-place">
+											<a href="#">Switzerland</a>
+										</h4>
+									</div>
+								</div>
+							
+								<div class="col-md-7 col-sm-7">	
+									<div class="inner-box">
+										<div class="discount-flick">-20%</div>
+										<div class="box-inner-ellipsis">
+											<div style="margin: 0px; padding: 0px; border: 0px;">
+												<h3 class="entry-title">
+													<a href="hotel-detail.html">Comfort Motel</a>
+												</h3>
+												<div class="entry-content">
+													<p>Post A Job To Tell Us About Your Project. We'll Quickly Match You With The Right Freelancers.</p>
+													<span class="price">From <strong class="theme-cl">$324</strong> /per person</span>
+												</div>
+											</div>
+										</div>
+										
+										<div class="entry-meta">
+											<div class="meta-item meta-author">
+												<div class="hotel-review entry-location">
+													<span class="review-status bg-success"><i class="ti-check"></i></span>
+													<h6><span class="cl-success font-bold">Good</span>1300 Review</h6>
+												</div>
+											</div>
+											<div class="meta-item meta-comment fl-right">
+												<div class="view-box">
+													<div class="fl-right">
+														<span><i class="ti-eye padd-r-5"></i>2541</span>
+													</div>
+												</div>
+											</div>
+											<div class="meta-item meta-rating fl-right">
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star-half"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							
+							</div>
+
+						</article>
+					</div>
+					
+					<!-- Singl hotel List -->
+					<div class="col-lg-6 col-md-6">
+						<article class="hotel-box list-style">
+							<div class="row">
+								
+								<div class="col-md-5 col-sm-5">
+									<div class="hotel-box-image">
+										<a href="hotel-detail.html">
+											<img src="assets/img/hotel/hotel-6.jpg" class="img-responsive hotel-box-img" alt="">
+										</a>
+										<div class="entry-bookmark">                                   
+											<a href="#"><i class="ti-bookmark"></i></a>
+										</div>
+										<h4 class="hotel-place">
+											<a href="#">Singapore</a>
+										</h4>
+										<span class="featured-tour"><i class="fa fa-star"></i></span>
+									</div>
+								</div>
+							
+								<div class="col-md-7 col-sm-7">	
+									<div class="inner-box">
+										<div class="discount-flick">-11%</div>
+										<div class="box-inner-ellipsis">
+											<div style="margin: 0px; padding: 0px; border: 0px;">
+												<h3 class="entry-title">
+													<a href="hotel-detail.html">Farmhouse Hotel</a>
+												</h3>
+												<div class="entry-content">
+													<p>Post A Job To Tell Us About Your Project. We'll Quickly Match You With The Right Freelancers.</p>
+													<span class="price">From <strong class="theme-cl">$234</strong> /per person</span>
+												</div>
+											</div>
+										</div>
+										
+										<div class="entry-meta">
+											<div class="meta-item meta-author">
+												<div class="hotel-review entry-location">
+													<span class="review-status bg-info"><i class="ti-check"></i></span>
+													<h6><span class="cl-info font-bold">superb</span>2541 Review</h6>
+												</div>
+											</div>
+											<div class="meta-item meta-comment fl-right">
+												<div class="view-box">
+													<div class="fl-right">
+														<span><i class="ti-eye padd-r-5"></i>3215</span>
+													</div>
+												</div>
+											</div>
+											<div class="meta-item meta-rating fl-right">
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star-half"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							
+							</div>
+
+						</article>
+					</div>
+					
+					<!-- Singl hotel List -->
+					<div class="col-lg-6 col-md-6">
+						<article class="hotel-box list-style">
+							<div class="row">
+								
+								<div class="col-md-5 col-sm-5">
+									<div class="hotel-box-image">
+										<a href="hotel-detail.html">
+											<img src="assets/img/hotel/hotel-7.jpg" class="img-responsive hotel-box-img" alt="">
+										</a>
+										<div class="entry-bookmark">                                   
+											<a href="#"><i class="ti-bookmark"></i></a>
+										</div>
+										<h4 class="hotel-place">
+											<a href="#">United Kingdom</a>
+										</h4>
+									</div>
+								</div>
+							
+								<div class="col-md-7 col-sm-7">	
+									<div class="inner-box">
+										<div class="discount-flick">-12%</div>
+										<div class="box-inner-ellipsis">
+											<div style="margin: 0px; padding: 0px; border: 0px;">
+												<h3 class="entry-title">
+													<a href="hotel-detail.html">Ivory House Hotel</a>
+												</h3>
+												<div class="entry-content">
+													<p>Post A Job To Tell Us About Your Project. We'll Quickly Match You With The Right Freelancers.</p>
+													<span class="price">From <strong class="theme-cl">$324</strong> /per person</span>
+												</div>
+											</div>
+										</div>
+										
+										<div class="entry-meta">
+											<div class="meta-item meta-author">
+												<div class="hotel-review entry-location">
+													<span class="review-status bg-warning"><i class="ti-check"></i></span>
+													<h6><span class="cl-warning font-bold">fair</span>1110 Review</h6>
+												</div>
+											</div>
+											<div class="meta-item meta-comment fl-right">
+												<div class="view-box">
+													<div class="fl-right">
+														<span><i class="ti-eye padd-r-5"></i>2540</span>
+													</div>
+												</div>
+											</div>
+											<div class="meta-item meta-rating fl-right">
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star-half"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							
+							</div>
+
+						</article>
+					</div>
+					
+					<!-- Singl hotel List -->
+					<div class="col-lg-6 col-md-6">
+						<article class="hotel-box list-style">
+							<div class="row">
+								
+								<div class="col-md-5 col-sm-5">
+									<div class="hotel-box-image">
+										<a href="hotel-detail.html">
+											<img src="assets/img/hotel/hotel-8.jpg" class="img-responsive hotel-box-img" alt="">
+										</a>
+										<div class="entry-bookmark">                                   
+											<a href="#"><i class="ti-bookmark"></i></a>
+										</div>
+										<h4 class="hotel-place">
+											<a href="#">Qatar</a>
+										</h4>
+										<span class="featured-tour"><i class="fa fa-star"></i></span>
+									</div>
+								</div>
+							
+								<div class="col-md-7 col-sm-7">	
+									<div class="inner-box">
+										<div class="discount-flick">-10%</div>
+										<div class="box-inner-ellipsis">
+											<div style="margin: 0px; padding: 0px; border: 0px;">
+												<h3 class="entry-title">
+													<a href="hotel-detail.html">Prophecy Motel</a>
+												</h3>
+												<div class="entry-content">
+													<p>Post A Job To Tell Us About Your Project. We'll Quickly Match You With The Right Freelancers.</p>
+													<span class="price">From <strong class="theme-cl">$224</strong> /per person</span>
+												</div>
+											</div>
+										</div>
+										
+										<div class="entry-meta">
+											<div class="meta-item meta-author">
+												<div class="hotel-review entry-location">
+													<span class="review-status bg-success"><i class="ti-check"></i></span>
+													<h6><span class="cl-success font-bold">Good</span>1200 Review</h6>
+												</div>
+											</div>
+											<div class="meta-item meta-comment fl-right">
+												<div class="view-box">
+													<div class="fl-right">
+														<span><i class="ti-eye padd-r-5"></i>1258</span>
+													</div>
+												</div>
+											</div>
+											<div class="meta-item meta-rating fl-right">
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star-half"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							
+							</div>
+
+						</article>
+					</div>
+					
+				</div>
+				
+				<div class="row">
+					<ul class="pagination">
+						<li class="page-item">
+						  <a class="page-link" href="#" aria-label="Previous">
+							<span class="ti-arrow-left"></span>
+							<span class="sr-only">Previous</span>
+						  </a>
+						</li>
+						<li class="page-item"><a class="page-link" href="#">1</a></li>
+						<li class="page-item"><a class="page-link" href="#">2</a></li>
+						<li class="page-item active"><a class="page-link" href="#">3</a></li>
+						<li class="page-item"><a class="page-link" href="#">4</a></li>
+						<li class="page-item"><a class="page-link" href="#">5</a></li>
+						<li class="page-item">
+						  <a class="page-link" href="#" aria-label="Next">
+							<span class="ti-arrow-right"></span>
+							<span class="sr-only">Next</span>
+						  </a>
+						</li>
+					</ul>
+				</div>
+				
+			</div>
+		</section>
+		<!-- =========== End All Hotel In Grid View =================== -->
+{% endblock %}

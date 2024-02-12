@@ -51,10 +51,14 @@ class User
     #[ORM\OneToMany(targetEntity: BlogComment::class, mappedBy: 'users')]
     private Collection $blogComments;
 
+    #[ORM\OneToMany(targetEntity: Resrvation::class, mappedBy: 'users')]
+    private Collection $resrvations;
+
     public function __construct()
     {
         $this->blogArticles = new ArrayCollection();
         $this->blogComments = new ArrayCollection();
+        $this->resrvations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -224,6 +228,36 @@ class User
             // set the owning side to null (unless already changed)
             if ($blogComment->getUsers() === $this) {
                 $blogComment->setUsers(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Resrvation>
+     */
+    public function getResrvations(): Collection
+    {
+        return $this->resrvations;
+    }
+
+    public function addResrvation(Resrvation $resrvation): static
+    {
+        if (!$this->resrvations->contains($resrvation)) {
+            $this->resrvations->add($resrvation);
+            $resrvation->setUsers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeResrvation(Resrvation $resrvation): static
+    {
+        if ($this->resrvations->removeElement($resrvation)) {
+            // set the owning side to null (unless already changed)
+            if ($resrvation->getUsers() === $this) {
+                $resrvation->setUsers(null);
             }
         }
 
