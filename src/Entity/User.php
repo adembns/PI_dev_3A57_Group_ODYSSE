@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -42,6 +44,18 @@ class User
     #[ORM\ManyToOne(inversedBy: 'users')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Role $roles = null;
+
+    #[ORM\OneToMany(targetEntity: BlogArticle::class, mappedBy: 'users')]
+    private Collection $blogArticles;
+
+    #[ORM\OneToMany(targetEntity: BlogComment::class, mappedBy: 'users')]
+    private Collection $blogComments;
+
+    public function __construct()
+    {
+        $this->blogArticles = new ArrayCollection();
+        $this->blogComments = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -152,6 +166,66 @@ class User
     public function setRoles(?Role $roles): static
     {
         $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, BlogArticle>
+     */
+    public function getBlogArticles(): Collection
+    {
+        return $this->blogArticles;
+    }
+
+    public function addBlogArticle(BlogArticle $blogArticle): static
+    {
+        if (!$this->blogArticles->contains($blogArticle)) {
+            $this->blogArticles->add($blogArticle);
+            $blogArticle->setUsers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBlogArticle(BlogArticle $blogArticle): static
+    {
+        if ($this->blogArticles->removeElement($blogArticle)) {
+            // set the owning side to null (unless already changed)
+            if ($blogArticle->getUsers() === $this) {
+                $blogArticle->setUsers(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, BlogComment>
+     */
+    public function getBlogComments(): Collection
+    {
+        return $this->blogComments;
+    }
+
+    public function addBlogComment(BlogComment $blogComment): static
+    {
+        if (!$this->blogComments->contains($blogComment)) {
+            $this->blogComments->add($blogComment);
+            $blogComment->setUsers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBlogComment(BlogComment $blogComment): static
+    {
+        if ($this->blogComments->removeElement($blogComment)) {
+            // set the owning side to null (unless already changed)
+            if ($blogComment->getUsers() === $this) {
+                $blogComment->setUsers(null);
+            }
+        }
 
         return $this;
     }
