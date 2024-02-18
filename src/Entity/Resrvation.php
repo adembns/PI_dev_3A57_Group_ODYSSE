@@ -25,6 +25,18 @@ class Resrvation
     #[ORM\OneToMany(targetEntity: Programe::class, mappedBy: 'reservation')]
     private Collection $programes;
 
+    #[ORM\OneToOne(mappedBy: 'reservation', cascade: ['persist', 'remove'])]
+    private ?Reclamation $reclamation = null;
+
+    #[ORM\ManyToOne(inversedBy: 'resrvations')]
+    private ?Hotel $hotel = null;
+
+    #[ORM\ManyToOne(inversedBy: 'resrvations')]
+    private ?Restaurant $restaurant = null;
+
+    #[ORM\ManyToOne(inversedBy: 'resrvations')]
+    private ?Evenement $evenement = null;
+    
     public function __construct()
     {
         $this->programes = new ArrayCollection();
@@ -88,4 +100,61 @@ class Resrvation
 
         return $this;
     }
+
+    public function getReclamation(): ?Reclamation
+    {
+        return $this->reclamation;
+    }
+
+    public function setReclamation(Reclamation $reclamation): static
+    {
+        // set the owning side of the relation if necessary
+        if ($reclamation->getReservation() !== $this) {
+            $reclamation->setReservation($this);
+        }
+
+        $this->reclamation = $reclamation;
+
+        return $this;
+    }
+
+    public function getHotel(): ?Hotel
+    {
+        return $this->hotel;
+    }
+
+    public function setHotel(?Hotel $hotel): static
+    {
+        $this->hotel = $hotel;
+
+        return $this;
+    }
+
+    public function getRestaurant(): ?Restaurant
+    {
+        return $this->restaurant;
+    }
+
+    public function setRestaurant(?Restaurant $restaurant): static
+    {
+        $this->restaurant = $restaurant;
+
+        return $this;
+    }
+
+    public function getEvenement(): ?Evenement
+    {
+        return $this->evenement;
+    }
+
+    public function setEvenement(?Evenement $evenement): static
+    {
+        $this->evenement = $evenement;
+
+        return $this;
+    }
+
+    
+
+    
 }

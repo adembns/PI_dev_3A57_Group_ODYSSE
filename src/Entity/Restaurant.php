@@ -2,27 +2,26 @@
 
 namespace App\Entity;
 
-use App\Repository\EvenementRepository;
+use App\Repository\RestaurantRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: EvenementRepository::class)]
-class Evenement
+#[ORM\Entity(repositoryClass: RestaurantRepository::class)]
+class Restaurant
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $dateDebuit = null;
+    #[ORM\Column(length: 255)]
+    private ?string $nom = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $dateFin = null;
+    #[ORM\Column(nullable: true)]
+    private ?int $rate = null;
 
-    #[ORM\OneToMany(targetEntity: Resrvation::class, mappedBy: 'evenement')]
+    #[ORM\OneToMany(targetEntity: Resrvation::class, mappedBy: 'restaurant')]
     private Collection $resrvations;
 
     public function __construct()
@@ -35,26 +34,26 @@ class Evenement
         return $this->id;
     }
 
-    public function getDateDebuit(): ?\DateTimeInterface
+    public function getNom(): ?string
     {
-        return $this->dateDebuit;
+        return $this->nom;
     }
 
-    public function setDateDebuit(\DateTimeInterface $dateDebuit): static
+    public function setNom(string $nom): static
     {
-        $this->dateDebuit = $dateDebuit;
+        $this->nom = $nom;
 
         return $this;
     }
 
-    public function getDateFin(): ?\DateTimeInterface
+    public function getRate(): ?int
     {
-        return $this->dateFin;
+        return $this->rate;
     }
 
-    public function setDateFin(\DateTimeInterface $dateFin): static
+    public function setRate(?int $rate): static
     {
-        $this->dateFin = $dateFin;
+        $this->rate = $rate;
 
         return $this;
     }
@@ -71,7 +70,7 @@ class Evenement
     {
         if (!$this->resrvations->contains($resrvation)) {
             $this->resrvations->add($resrvation);
-            $resrvation->setEvenement($this);
+            $resrvation->setRestaurant($this);
         }
 
         return $this;
@@ -81,8 +80,8 @@ class Evenement
     {
         if ($this->resrvations->removeElement($resrvation)) {
             // set the owning side to null (unless already changed)
-            if ($resrvation->getEvenement() === $this) {
-                $resrvation->setEvenement(null);
+            if ($resrvation->getRestaurant() === $this) {
+                $resrvation->setRestaurant(null);
             }
         }
 
