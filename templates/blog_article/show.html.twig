@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+{% block head %}
+	<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+	<link rel="stylesheet" href="{{asset('css/templatemo-xtra-blog.css')}}">
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+{% endblock %}
+{% block body %}
+	<div class="container1-fluid">
+		<main
+			class="tm-main">
+			<!-- Search form -->
+			<div class="row tm-row">
+				<div class="col-12">
+					<hr class="tm-hr-primary tm-mb-55">
+					<img width="954" height="535" src="{{asset('uploads/images/'~ blogArticle.getImage())}}" class="tm-mb-40"/>
+				</div>
+			</div>
+			<div class="row tm-row">
+				<div class="col-lg-8 tm-post-col">
+					<div class="tm-post-full">
+						<div class="mb-4">
+							<h2 class="pt-2 tm-color-primary tm-post-title">Single Post of Xtra Blog HTML Template</h2>
+							<p class="tm-mb-40">{{ blogArticle.getDateCreation()|date("m/d/Y") }}
+								posted by
+								{{ blogArticle.getUsers() ? blogArticle.getUsers().getNom() : ''  }}
+								{{ blogArticle.getUsers() ? blogArticle.getUsers().getPrenom() : ''  }}</p>
+							<p>
+								{{ blogArticle.getContenu() }}
+							</p>
+							<span class="d-block text-right tm-color-primary">Creative . Design . Business</span>
+						</div>
+
+						<!-- Comments -->
+						<div>
+							<h2 class="tm-color-primary tm-post-title">Comments</h2>
+							<hr class="tm-hr-primary tm-mb-45">
+							{% for item in comments %}
+								<div class="tm-comment tm-mb-45">
+									<figure class="tm-comment-figure">
+										<img src="img/comment-1.jpg" alt="Image" class="mb-2 rounded-circle img-thumbnail">
+										<figcaption class="tm-color-primary text-center">
+											{{ item.getUsers() ? item.getUsers().getNom() : ''  }}
+											{{ item.getUsers() ? item.getUsers().getPrenom() : ''  }}
+										</figcaption>
+									</figure>
+									<div>
+										<p>
+											{{ item.getContenu() }}
+										</p>
+										<div class="d-flex justify-content-between">
+											<a href="{{ path('app_blog_comment_delete', {'id': item.id}) }}" class="tm-color-primary">Delete</a>
+											<span class="tm-color-primary">{{ item.getDateCreation()|date("m/d/Y") }}</span>
+										</div>
+									</div>
+								</div>
+							{% endfor %}
+							<div class="mb-5 tm-comment-form">
+								{{ form_start(form) }}
+								<div class="mb-4">
+									{{form_widget(form.users,{'attr': {'class': 'form-control'}})}}
+								</div>
+								<div class="mb-4">
+									{{form_widget(form.contenu,{'attr': {'class': 'form-control'}})}}
+								</div>
+								<div class="text-right">
+									<button class="tm-btn tm-btn-primary tm-btn-small">{{ button_label|default('Submit') }}</button>
+								</div>
+								{{ form_end(form) }}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+	{% block javascript %}
+		<script src="js/jquery.min.js"></script>
+		<script src="js/templatemo-script.js"></script>
+	{% endblock %}
+{% endblock %}

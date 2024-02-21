@@ -6,7 +6,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<title>Tour & Travel Bootstrap Template</title>
+		<title>ODYSSEE</title>
 
 		<!-- Plugins CSS -->
 		<link
@@ -14,37 +14,26 @@
 
 		<!-- Custom style -->
 		<link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
-		<link href="{{asset('assets/css/responsiveness.css')}}" rel="stylesheet"><link id="jssDefault" rel="stylesheet" href="assets/css/skins/default.css">
-		{% block head %}{% endblock %}
+		<link href="{{asset('assets/css/responsiveness.css')}}" rel="stylesheet"><link id="jssDefault" rel="stylesheet" href="{{asset('assets/css/skins/default.css')}}">
+		
 	</head>
 
 	<body>
 
 		<!-- ======================= Start Navigation ===================== -->
 		<nav class="navbar navbar-default navbar-mobile navbar-fixed light bootsnav">
-			<div
-				class="container">
+			<div class="container">
 
 				<!-- Start Logo Header Navigation -->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-						<i class="fa fa-bars"></i>
-					</button>
-					<a class="navbar-brand" href="index-2.html">
-						<img src="assets/img/logo.png" class="logo logo-display" alt="">
-						<img src="assets/img/logo.png" class="logo logo-scrolled" alt="">
-					</a>
 
-				</div>
 				<!-- End Logo Header Navigation -->
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="navbar-menu">
-
-					<ul class="nav navbar-nav navbar-left" data-in="fadeInDown" data-out="fadeOutUp">
+					<div class="collapse navbar-collapse" id="navbar-menu"> <ul class="nav navbar-nav navbar-left" data-in="fadeInDown" data-out="fadeOutUp">
 
 						<li class="dropdown">
-							<a href="{{path('app_home_page')}}">Home</a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Home</a>
+						
 						</li>
 
 						<li class="dropdown megamenu-fw">
@@ -106,7 +95,7 @@
 														<a href="hotel-grid.html">Hotel Grid</a>
 													</li>
 													<li>
-														<a href="{{path('app_hotel_list')}}">Hotel List</a>
+														<a href="hotel-list.html">Hotel List</a>
 													</li>
 													<li>
 														<a href="hotel-grid-sidebar.html">Hotel Grid Sidebar</a>
@@ -128,7 +117,7 @@
 														<a href="restaurant-grid.html">Restaurant Grid</a>
 													</li>
 													<li>
-														<a href="{{path('app_restaurant_list')}}">Restaurant List</a>
+														<a href="restaurant-list.html">Restaurant List</a>
 													</li>
 													<li>
 														<a href="restaurant-grid-sidebar.html">Restaurant Grid Sidebar</a>
@@ -150,7 +139,7 @@
 						</li>
 
 						<li>
-							<a href="{{path('app_find_guide')}}">Find Guide</a>
+							<a href="hire-guider.html">Find Guide</a>
 						</li>
 
 						<li class="dropdown">
@@ -213,13 +202,19 @@
 					</ul>
 
 					<ul class="nav navbar-nav navbar-right">
-						<li class="br-right">
-							<a href="javascript:void(0)" data-toggle="modal" data-target="#signin">
-								<i class="login-icon ti-user"></i>Login</a>
-						</li>
-						<li class="sign-up">
-							<a class="btn-signup red-btn" href="tour-grid-sidebar.html">
-								<span class="ti-briefcase"></span>Booking Toor</a>
+						<li class="dropdown dash-link">
+							<a href="#" class="dropdown-toggle"><img src="{{asset('assets/img/user-3.jpg')}}" class="img-responsive avatar" alt=""/>Hi, Daniel</a>
+							<ul class="dropdown-menu left-nav">
+								<li>
+									<a href="{{ path('app_blog_article_new')}}">Dashboard</a>
+								</li>
+								<li>
+									<a href="http://themezhub.com/">My Profile</a>
+								</li>
+								<li>
+									<a href="login.html">Log Out</a>
+								</li>
+							</ul>
 						</li>
 					</ul>
 
@@ -228,7 +223,161 @@
 			</div>
 		</nav>
 		<!-- ======================= End Navigation ===================== -->
-		{% block body %}{% endblock %}
+
+
+		<!-- ======================= Start Dashboard ===================== -->
+		<section class="dashboard gray-bg padd-0 mrg-top-50">
+			<div class="container-fluid">
+				<div class="row">
+
+					<div
+						class="col-lg-2 col-md-2 col-sm-3 dashboard-bg">
+						<!-- /. NAV TOP  -->
+						<nav
+							class="navbar navbar-side">
+							<!-- Start Logo Header Navigation -->
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#dashboard-menu">
+									<i class="fa fa-bars"></i>
+								</button>
+
+							</div>
+							<div class="collapse sidebar-collapse" id="dashboard-menu">
+								<div class="profile-wrapper">
+									<div class="profile-wrapper-thumb">
+										<img src="{{asset('assets/img/user-3.jpg')}}" class="img-responsive img-circle" alt=""/>
+										<span class="dashboard-user-status bg-success"></span>
+									</div>
+									<h4>Duke Daniel</h4>
+								</div>
+								<ul class="nav" id="main-menu">
+
+									<li class="active">
+										<a href="dashboard.html">
+											<i class="fa fa-dashboard" aria-hidden="true"></i>Dashboard</a>
+									</li>
+
+									<li>
+										<a href="messages.html">
+											<i class="ti-email" aria-hidden="true"></i>Messages</a>
+									</li>
+
+									<li>
+										<a href="javascript:void(0)">
+											<i class="fa fa-clone" aria-hidden="true"></i>Manage Listing
+											<span class="fa arrow"></span>
+										</a>
+										<ul class="nav nav-second-level">
+
+											<li>
+												<a href="manage-hotels.html">
+													<i class="fa fa-circle-o-notch" aria-hidden="true"></i>Manage Hotels</a>
+											</li>
+											<li>
+												<a href="manage-tours.html">
+													<i class="fa fa-circle-o-notch" aria-hidden="true"></i>Manage Tours</a>
+											</li>
+											<li>
+												<a href="manage-destinations.html">
+													<i class="fa fa-circle-o-notch" aria-hidden="true"></i>Manage Destinations</a>
+											</li>
+											<li>
+												<a href="manage-restaurants.html">
+													<i class="fa fa-circle-o-notch" aria-hidden="true"></i>Manage Restaurants</a>
+											</li>
+										</ul>
+									</li>
+
+									<li>
+										<a href="javascript:void(0)">
+											<i class="ti-location-pin" aria-hidden="true"></i>Add Listings
+											<span class="fa arrow"></span>
+										</a>
+										<ul class="nav nav-second-level">
+
+											<li>
+												<a href="http://themezhub.com/">
+													<i class="fa fa-circle-o-notch" aria-hidden="true"></i>Add Hotels</a>
+											</li>
+											<li>
+												<a href="add-tours.html">
+													<i class="fa fa-circle-o-notch" aria-hidden="true"></i>Add Tours</a>
+											</li>
+											<li>
+												<a href="add-destinations.html">
+													<i class="fa fa-circle-o-notch" aria-hidden="true"></i>Add Destinations</a>
+											</li>
+											<li>
+												<a href="add-restaurants.html">
+													<i class="fa fa-circle-o-notch" aria-hidden="true"></i>Add Restaurants</a>
+											</li>
+										</ul>
+									</li>
+
+									<li>
+										<a href="invoice.html">
+											<i class="fa-print" aria-hidden="true"></i>Invoice</a>
+									</li>
+
+									<li>
+										<a href="javascript:void(0)">
+											<i class="ti-calendar" aria-hidden="true"></i>My Booking
+											<span class="fa arrow"></span>
+										</a>
+										<ul class="nav nav-second-level">
+											<li>
+												<a href="booking-1.html">
+													<i class="fa fa-circle-o-notch" aria-hidden="true"></i>Booking 1</a>
+											</li>
+											<li>
+												<a href="booking-2.html">
+													<i class="fa fa-circle-o-notch" aria-hidden="true"></i>Booking 2</a>
+											</li>
+										</ul>
+									</li>
+
+									<li>
+										<a href="javascript:void(0)">
+											<i class="fa fa-cog" aria-hidden="true"></i>Settings
+											<span class="fa arrow"></span>
+										</a>
+										<ul class="nav nav-second-level">
+											<li>
+												<a href="basic-settings.html">
+													<i class="fa fa-circle-o-notch" aria-hidden="true"></i>Basic Settings</a>
+											</li>
+											<li>
+												<a href="site-settings.html">
+													<i class="fa fa-circle-o-notch" aria-hidden="true"></i>Site Settings</a>
+											</li>
+										</ul>
+									</li>
+
+									<li>
+										<a href="my-profile.html">
+											<i class="ti-user" aria-hidden="true"></i>My Profile</a>
+									</li>
+
+									<li>
+										<a href="add-payment-methode.html">
+											<i class="ti-credit-card" aria-hidden="true"></i>Add Payment Methode</a>
+									</li>
+
+									<li class="log-off">
+										<a href="login.html">
+											<i class="fa fa-power-off" aria-hidden="true"></i>Logout</a>
+									</li>
+								</ul>
+							</div>
+						</nav>
+						<!-- /. NAV SIDE  -->
+					</div>
+					{% block body %}{% endblock %}
+				</div>
+			</div>
+		</section>
+		<!-- ======================= End Dashboard ===================== -->
+
 		<!-- ============== Before Footer ====================== -->
 		<section class="before-footer bt-1 bb-1">
 			<div class="container-fluid padd-0 full-width">
@@ -321,7 +470,7 @@
 								<h4>Featured Hotels</h4>
 								<ul>
 									<li><a href="hotel-grid.html">Hotel Grid</a></li>
-									<li><ahref="{{path('app_hotel_list')}}">Hotel List</a></li>
+									<li><a href="hotel-list.html">Hotel List</a></li>
 									<li><a href="hotel-grid-sidebar.html">Hotel Grid Sidebar</a></li>
 									<li><a href="hotel-list-sidebar.html">Hotel List Sidebar</a></li>
 									<li><a href="hotel-detail.html">Hotel Detail</a></li>
@@ -366,134 +515,10 @@
 
 				</div>
 
+				<!-- Row Start -->
+
 			</div>
 		</footer>
-
-		<!-- Sign Up Window Code -->
-		<div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content" id="myModalLabel1">
-					<div class="modal-body">
-						<div class="text-center"><img src="assets/img/logo.png" class="img-responsive" alt=""></div>
-
-						<!-- Nav tabs -->
-						<ul class="nav nav-tabs nav-advance theme-bg" role="tablist">
-							<li class="nav-item active">
-								<a class="nav-link" data-toggle="tab" href="#employer" role="tab">
-									<i class="ti-user"></i>
-									Employer</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" data-toggle="tab" href="#candidate" role="tab">
-									<i class="ti-user"></i>
-									Candidate</a>
-							</li>
-						</ul>
-						<!-- Nav tabs -->
-
-						<!-- Tab panels -->
-						<div
-							class="tab-content">
-
-							<!-- Employer Panel 1-->
-							<div class="tab-pane fade in show active" id="employer" role="tabpanel">
-								<form>
-
-									<div class="form-group">
-										<label>User Name</label>
-										<input type="text" class="form-control" placeholder="User Name">
-									</div>
-
-									<div class="form-group">
-										<label>Password</label>
-										<input type="password" class="form-control" placeholder="*********">
-									</div>
-
-									<div class="form-group">
-										<span class="custom-checkbox">
-											<input type="checkbox" id="4">
-											<label for="4"></label>Remember me
-										</span>
-										<a href="#" title="Forget" class="fl-right">Forgot Password?</a>
-									</div>
-									<div class="form-group text-center">
-										<button type="button" class="btn theme-btn full-width btn-m">LogIn
-										</button>
-									</div>
-
-								</form>
-
-								<div class="log-option">
-									<span>OR</span>
-								</div>
-
-								<div class="row mrg-bot-20">
-									<div class="col-md-6">
-										<a href="#" title="" class="fb-log-btn log-btn">
-											<i class="fa fa-facebook"></i>Sign In With Facebook</a>
-									</div>
-									<div class="col-md-6">
-										<a href="#" title="" class="gplus-log-btn log-btn">
-											<i class="fa fa-google-plus"></i>Sign In With Google+</a>
-									</div>
-								</div>
-
-							</div>
-							<!--/.Panel 1-->
-
-							<!-- Candidate Panel 2-->
-							<div class="tab-pane fade" id="candidate" role="tabpanel">
-								<form>
-
-									<div class="form-group">
-										<label>User Name</label>
-										<input type="text" class="form-control" placeholder="User Name">
-									</div>
-
-									<div class="form-group">
-										<label>Password</label>
-										<input type="password" class="form-control" placeholder="*********">
-									</div>
-
-									<div class="form-group">
-										<span class="custom-checkbox">
-											<input type="checkbox" id="4">
-											<label for="4"></label>Remember me
-										</span>
-										<a href="#" title="Forget" class="fl-right">Forgot Password?</a>
-									</div>
-									<div class="form-group text-center">
-										<button type="button" class="btn theme-btn full-width btn-m">LogIn
-										</button>
-									</div>
-
-								</form>
-
-								<div class="log-option">
-									<span>OR</span>
-								</div>
-
-								<div class="row mrg-bot-20">
-									<div class="col-md-6">
-										<a href="#" title="" class="fb-log-btn log-btn">
-											<i class="fa fa-facebook"></i>Sign In With Facebook</a>
-									</div>
-									<div class="col-md-6">
-										<a href="#" title="" class="gplus-log-btn log-btn">
-											<i class="fa fa-google-plus"></i>Sign In With Google+</a>
-									</div>
-								</div>
-
-							</div>
-							<!--/.Panel 2-->
-
-						</div>
-						<!-- Tab panels -->
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- End Sign Up Window -->
 		<!-- Switcher -->
 		<button class="w3-button w3-teal w3-xlarge w3-right" onclick="openRightMenu()">
 			<i class="spin theme-cl fa fa-cog" aria-hidden="true"></i>
@@ -543,30 +568,12 @@
 		<script src="{{asset('assets/plugins/js/jquery.slimscroll.min.js')}}"></script>
 		<script src="{{asset('assets/plugins/js/jquery.metisMenu.js')}}"></script>
 		<script src="{{asset('assets/plugins/js/jquery.easing.min.js')}}"></script>
-		{% block javascript %}{% endblock %}
+		<script src="{{asset('assets/plugins/js/raphael.min.js')}}"></script>
+		<script src="{{asset('assets/plugins/js/morris.min.js')}}"></script>
+		<script src="{{asset('assets/js/chart.js')}}"></script>
+
 		<!-- Custom Js -->
 		<script src="{{asset('assets/js/custom.js')}}"></script>
-
-		<script>
-			$(function () {
-
-$('input[name="book-date"]').daterangepicker({
-autoUpdateInput: false,
-locale: {
-cancelLabel: 'Clear'
-}
-});
-
-$('input[name="book-date"]').on('apply.daterangepicker', function (ev, picker) {
-$(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
-});
-
-$('input[name="book-date"]').on('cancel.daterangepicker', function (ev, picker) {
-$(this).val('');
-});
-
-});
-		</script>
 
 		<script src="{{asset('assets/js/jQuery.style.switcher.js')}}"></script>
 		<script>

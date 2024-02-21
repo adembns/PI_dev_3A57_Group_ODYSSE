@@ -1,0 +1,71 @@
+{% extends 'basedashboard.html.twig' %}
+
+{% block title %}Edit BlogArticle
+{% endblock %}
+
+{% block body %}
+	<!-- ======================= Start Add Hotel ===================== -->
+
+	<section class="dashboard gray-bg padd-0 mrg-top-50">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-10 col-md-10 col-sm-9 col-lg-push-2 col-md-push-2 col-sm-push-3">
+					<div class="row mrg-0 mrg-top-20">
+						<div class="tr-single-box">
+							<div class="tr-single-header">
+								<h3 class="dashboard-title">Edit Blog</h3>
+							</div>
+							<div
+								class="tr-single-body">
+								<!-- progressbar -->
+								<ul id="progressbar">
+									<li class="active">Bolg Details</li>
+									<li>Added Seccessfully</li>
+								</ul>
+								<!-- fieldsets -->
+								<fieldset>
+									<div class="text-center">
+										<h2 class="fs-title">Bolg Details</h2>
+										<h3 class="fs-subtitle">This is step 1</h3>
+									</div>
+
+									<div class="row">
+										{{ form_start(form) }}
+										<div class="col-xs-6">
+											<label>Upload Your Image</label>
+											<div class="cf-input">
+												<label class="custom-file">
+													{{form_widget(form.image,{'attr': {'class': 'custom-file-input'}})}}
+													<span class="custom-file-control"></span>
+												</label>
+											</div>
+										</div>
+
+										<div class="col-xs-6">
+											<label>Ratting</label>
+											<div class="sl-box">
+												{{form_widget(form.statut,{'attr': {'class': 'form-control wide'}})}}
+											</div>
+										</div>
+										<div class="col-xs-12">
+											<label>Content</label>
+											{{form_widget(form.contenu,{'attr': {'class': 'form-control height-120'}})}}
+										</div>
+										<button class="btn">{{ button_label|default('Save') }}</button>
+										{{ form_end(form) }}
+									</div>
+								</fieldset>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- ======================= End  Add Hotel===================== -->
+
+	<a href="{{ path('app_blog_article_index') }}">back to list</a>
+{% endblock %}

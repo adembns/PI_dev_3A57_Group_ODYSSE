@@ -21,6 +21,17 @@ class BlogCommentRepository extends ServiceEntityRepository
         parent::__construct($registry, BlogComment::class);
     }
 
+    public function findByBlogArticle($value): array
+    {
+        return $this->createQueryBuilder('b')
+            ->andWhere('b.blogArticle = :val')
+            ->setParameter('val', $value)
+            ->orderBy('b.id', 'ASC')
+            ->setMaxResults(100)
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return BlogComment[] Returns an array of BlogComment objects
 //     */

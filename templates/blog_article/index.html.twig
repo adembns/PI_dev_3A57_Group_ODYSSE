@@ -1,0 +1,52 @@
+{% extends 'basedashboard.html.twig' %}
+
+{% block title %}BlogArticle index
+{% endblock %}
+
+{% block body %}
+	<div class="col-lg-10 col-md-10 col-sm-9 col-lg-push-2 col-md-push-2 col-sm-push-3">
+		<div class="row mrg-0 mrg-top-20">
+			<div class="tr-single-box">
+				<h1>BlogArticle index</h1>
+
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Contenu</th>
+							<th>Image</th>
+							<th>DateCreation</th>
+							<th>DateModify</th>
+							<th>Statut</th>
+							<th>actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for blog_article in blog_articles %}
+							<tr>
+								<td>{{ blog_article.id }}</td>
+								<td>{{ blog_article.contenu }}</td>
+								<td>{{ blog_article.image }}</td>
+								<td>{{ blog_article.dateCreation ? blog_article.dateCreation|date('Y-m-d') : '' }}</td>
+								<td>{{ blog_article.dateModify ? blog_article.dateModify|date('Y-m-d') : '' }}</td>
+								<td>{{ blog_article.statut }}</td>
+								<td>
+								
+									<a href="{{ path('app_blog_article_delete', {'id': blog_article.id}) }}"  class="btn btn-danger">delete</a>
+									<a href="{{ path('app_blog_article_edit', {'id': blog_article.id}) }}"  class="btn btn-warning">edit</a>
+								
+								</td>
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="7">no records found</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+
+				<a href="{{ path('app_blog_article_new') }}" class="btn btn-success">Create new</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}

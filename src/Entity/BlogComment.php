@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\BlogCommentRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -24,20 +25,17 @@ class BlogComment
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateModify = null;
-
-    #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'blogComments')]
-    private ?self $blogArticle = null;
-
-    #[ORM\OneToMany(targetEntity: self::class, mappedBy: 'blogArticle')]
-    private Collection $blogComments;
-
+    
     #[ORM\ManyToOne(inversedBy: 'blogComments')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $users = null;
 
+    #[ORM\ManyToOne(inversedBy: 'blogComments')]
+    private ?BlogArticle $blogArticle = null;
+
     public function __construct()
     {
-        $this->blogComments = new ArrayCollection();
+        $this->dateCreation = new DateTime();
     }
 
     public function getId(): ?int
@@ -81,48 +79,6 @@ class BlogComment
         return $this;
     }
 
-    public function getBlogArticle(): ?self
-    {
-        return $this->blogArticle;
-    }
-
-    public function setBlogArticle(?self $blogArticle): static
-    {
-        $this->blogArticle = $blogArticle;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, self>
-     */
-    public function getBlogComments(): Collection
-    {
-        return $this->blogComments;
-    }
-
-    public function addBlogComment(self $blogComment): static
-    {
-        if (!$this->blogComments->contains($blogComment)) {
-            $this->blogComments->add($blogComment);
-            $blogComment->setBlogArticle($this);
-        }
-
-        return $this;
-    }
-
-    public function removeBlogComment(self $blogComment): static
-    {
-        if ($this->blogComments->removeElement($blogComment)) {
-            // set the owning side to null (unless already changed)
-            if ($blogComment->getBlogArticle() === $this) {
-                $blogComment->setBlogArticle(null);
-            }
-        }
-
-        return $this;
-    }
-
     public function getUsers(): ?User
     {
         return $this->users;
@@ -131,6 +87,18 @@ class BlogComment
     public function setUsers(?User $users): static
     {
         $this->users = $users;
+
+        return $this;
+    }
+
+    public function getBlogArticle(): ?BlogArticle
+    {
+        return $this->blogArticle;
+    }
+
+    public function setBlogArticle(?BlogArticle $blogArticle): static
+    {
+        $this->blogArticle = $blogArticle;
 
         return $this;
     }
