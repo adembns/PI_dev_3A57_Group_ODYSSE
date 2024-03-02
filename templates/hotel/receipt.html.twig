@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+        .header {
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .info {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<header>
+  <img src="{{ app.request.schemeAndHttpHost ~ asset('/img/logo.png') }}" alt="Company Logo" width="250" height="150">
+  <h1>Hotel Information</h1>
+</header>
+<body>
+    
+    <div class="info">
+        <p><strong>Name:</strong> {{ hotel.name }}</p>
+        <p><strong>Location:</strong> {{ hotel.location }}</p>
+        <p><strong>Price:</strong> {{ hotel.prix }}</p>
+        <p><strong>Features:</strong> {{ hotel.features }}</p>
+    </div>
+</body>
+</html>

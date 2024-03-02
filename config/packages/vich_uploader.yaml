@@ -1,0 +1,19 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        hotels_directory: # Change from produit_directory to hotels_directory
+            uri_prefix: /uploads/hotels
+            upload_destination: '%kernel.project_dir%/public/images/hotels'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
+        
+        restaurant_directory: # Change from produit_directory to hotels_directory
+            uri_prefix: /uploads/restaurants
+            upload_destination: '%kernel.project_dir%/public/images/hotels'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true

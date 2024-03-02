@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hotel index{% endblock %}
+
+{% block body %}
+    <br>
+    <br>
+    <h1> Restaurant index</h1>
+
+    <div class="row">
+        {% for restaurant in restaurants %}
+          <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card" style="border: 2px solid #e9ecef;">
+              <div class="card">
+                {% if restaurant.imageName %}
+                  <img src="{{ asset('images/hotels/' ~ restaurant.imageName) }}" alt="{{ restaurant.nom }}" class="card-img-top" style="max-height: 200px;">
+                {% else %}
+                  <img src="{{ asset('images/default.jpg') }}" alt="Default Image" class="card-img-top">
+                {% endif %}
+                <div class="card-body">
+                  <h5 class="card-title" style="color: #1a1a1a; font-family: 'Open Sans', sans-serif;">Name: {{ restaurant.nom }}</h5>
+                  <h5 class="card-text" style="color: #666666; font-family: 'Open Sans', sans-serif;">Features: {{ restaurant.rate }}</h5>
+                  <h5 class="card-text" style="color: #666666; font-family: 'Open Sans', sans-serif;">Location: {{ restaurant.location }}</h5>
+                  <a href="{{ path('app_restaurant_show', {'id': restaurant.id}) }}" class="btn btn-primary" style="background-color: #1a1a1a; border-color: #1a1a1a;">Voir détails</a>
+                 
+                    
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% else %}
+          <div class="col">
+            <p>No records found</p>
+          </div>
+        {% endfor %}
+      </div>
+      
+
+    
+{% endblock %}

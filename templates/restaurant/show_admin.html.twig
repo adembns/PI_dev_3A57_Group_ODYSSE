@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+<br><br><br><br>Restaurant{% endblock %}
+
+{% block body %}
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            {% if restaurant.imageName %}
+                <img src="{{ asset('images/hotels/' ~ restaurant.imageName) }}" alt="{{ restaurant.nom }}" class="img-fluid rounded shadow" width="500" height="500">
+            {% else %}
+                <img src="{{ asset('images/default.jpg') }}" alt="Default Image" class="img-fluid rounded shadow" width="500" height="800">
+            {% endif %}
+        </div>
+        <div class="col-md-7">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h1 class="text-primary">{{ restaurant.nom }}</h1>
+            <hr class="bg-primary">
+            <ul class="list-group list-group-flush mb-4">
+                <li class="list-group-item">
+                    <h5 class="text-secondary">Rate:</h5>
+                    <h6>{{ restaurant.rate }}</h6>
+                </li>
+                
+                <li class="list-group-item">
+                    <h5 class="text-secondary">Location:</h5>
+                    <h6>{{ restaurant.location }}</h6>
+                </li>
+            </ul>
+            
+            </form>
+            <a href="{{ path('app_restaurant_index1') }}" class="btn btn-secondary btn-lg mb-2">Back to List</a>
+            <a href="{{ path('app_restaurant_edit', {'id': restaurant.id}) }}" class="btn btn-secondary btn-lg mb-2">Edit</a>
+            
+            <form method="POST" action="{{ path('app_restaurant_delete', {'id': restaurant.id}) }}">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+            
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+<br><br><br><br>Hotel{% endblock %}
+
+{% block body %}
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            {% if hotel.imageName %}
+                <img src="{{ asset('images/hotels/' ~ hotel.imageName) }}" alt="{{ hotel.name }}" class="img-fluid rounded shadow" width="500" height="500">
+            {% else %}
+                <img src="{{ asset('images/default.jpg') }}" alt="Default Image" class="img-fluid rounded shadow" width="500" height="800">
+            {% endif %}
+        </div>
+        <div class="col-md-7">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h1 class="text-primary">{{ hotel.name }}</h1>
+            <hr class="bg-primary">
+            <ul class="list-group list-group-flush mb-4">
+                <li class="list-group-item">
+                    <h5 class="text-secondary">Features:</h5>
+                    <h6>{{ hotel.features }}</h6>
+                </li>
+                <li class="list-group-item">
+                    <h5 class="text-secondary">Price:</h5>
+                    <h6>{{ hotel.prix }} €</h6>
+                </li>
+                <li class="list-group-item">
+                    <h5 class="text-secondary">Location:</h5>
+                    <h6>{{ hotel.location }}</h6>
+                </li>
+            </ul>
+            
+            </form>
+            <a href="{{ path('app_hotel_index') }}" class="btn btn-secondary btn-lg mb-2">Back to List</a>
+            <a href="{{ path('app_hotel_edit', {'id': hotel.id}) }}" class="btn btn-secondary btn-lg mb-2">Edit</a>
+            
+            <form method="POST" action="{{ path('app_hotel_delete', {'id': hotel.id}) }}">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+            
+        </div>
+    </div>
+</div>
+{% endblock %}

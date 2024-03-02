@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Résultats de la recherche</title>
+</head>
+<body>
+
+<h1>Résultats de la recherche d'hôtels</h1>
+
+{% if hotels is empty %}
+    <p>Aucun résultat trouvé.</p>
+{% else %}
+    <ul>
+        {% for hotel in hotels %}
+            <li>{{ hotel.name }} - {{ hotel.location }} - {{ hotel.price }} $</li>
+            <!-- Ajoutez d'autres attributs d'hôtel que vous souhaitez afficher -->
+        {% endfor %}
+    </ul>
+{% endif %}
+
+</body>
+</html>
