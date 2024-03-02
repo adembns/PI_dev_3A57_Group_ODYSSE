@@ -10,11 +10,11 @@
 
 		<!-- Plugins CSS -->
 		<link
-		rel="stylesheet" href="assets/plugins/css/plugins.css">
+		rel="stylesheet" href="{{asset('assets/plugins/css/plugins.css')}}">
 
 		<!-- Custom style -->
-		<link href="assets/css/style.css" rel="stylesheet">
-		<link href="assets/css/responsiveness.css" rel="stylesheet"><link id="jssDefault" rel="stylesheet" href="assets/css/skins/default.css">
+		<link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
+		<link href="{{asset('assets/css/responsiveness.css')}}" rel="stylesheet"><link id="jssDefault" rel="stylesheet" href="{{asset('assets/css/skins/default.css')}}">
 
 	</head>
 
@@ -31,8 +31,8 @@
 						<i class="fa fa-bars"></i>
 					</button>
 					<a class="navbar-brand" href="index-2.html">
-						<img src="assets/img/logo.png" class="logo logo-display" alt="">
-						<img src="assets/img/logo.png" class="logo logo-scrolled" alt="">
+						<img src="{{('assets/img/logo.png')}}" class="logo logo-display" alt="">
+						<img src="{{('assets/img/logo.png')}}" class="logo logo-scrolled" alt="">
 					</a>
 
 				</div>
@@ -106,7 +106,7 @@
 														<a href="hotel-grid.html">Hotel Grid</a>
 													</li>
 													<li>
-														<a href="{{path('app_hotel_list')}}">Hotel List</a>
+														<a href="{{path('app_hotel_index1')}}">Hotel List</a>
 													</li>
 													<li>
 														<a href="hotel-grid-sidebar.html">Hotel Grid Sidebar</a>
@@ -128,7 +128,7 @@
 														<a href="restaurant-grid.html">Restaurant Grid</a>
 													</li>
 													<li>
-														<a href="{{path('app_restaurant_list')}}">Restaurant List</a>
+														<a href="{{path('app_restaurant_index1')}}">Restaurant List</a>
 													</li>
 													<li>
 														<a href="restaurant-grid-sidebar.html">Restaurant Grid Sidebar</a>
@@ -321,8 +321,8 @@
 								<h4>Featured Hotels</h4>
 								<ul>
 									<li><a href="hotel-grid.html">Hotel Grid</a></li>
-									<li><a href="{{path('app_hotel_list')}}">Hotel List</a></li>
-									<li><a href="hotel-grid-sidebar.html">Hotel Grid Sidebar</a></li>
+									<li><a href="{{path('app_hotel_index')}}">Hotel List</a></li>
+									<li><a href="{{path('app_hotel_index1')}}">Hotel Grid Sidebar</a></li>
 									<li><a href="hotel-list-sidebar.html">Hotel List Sidebar</a></li>
 									<li><a href="hotel-detail.html">Hotel Detail</a></li>
 									<li><a href="restaurant-detail.html">Restaurant Detail</a></li>
@@ -406,7 +406,7 @@
 
 									<div class="form-group">
 										<label>Password</label>
-										<input type="password" class="form-control" placeholder="*********">
+										<input type="password" class="form-control" placeholder="*******">
 									</div>
 
 									<div class="form-group">
@@ -452,7 +452,7 @@
 
 									<div class="form-group">
 										<label>Password</label>
-										<input type="password" class="form-control" placeholder="*********">
+										<input type="password" class="form-control" placeholder="*******">
 									</div>
 
 									<div class="form-group">
@@ -524,27 +524,27 @@
 		<!-- /Switcher -->
 
 		<!-- =================== START JAVASCRIPT ================== -->
-		<script src="assets/plugins/js/jquery.min.js"></script>
-		<script src="assets/plugins/js/bootstrap.min.js"></script>
-		<script src="assets/plugins/js/viewportchecker.js"></script>
-		<script src="assets/plugins/js/bootsnav.js"></script>
-		<script src="assets/plugins/js/slick.min.js"></script>
-		<script src="assets/plugins/js/jquery.nice-select.min.js"></script>
-		<script src="assets/plugins/js/jquery.fancybox.min.js"></script>
-		<script src="assets/plugins/js/jquery.downCount.js"></script>
-		<script src="assets/plugins/js/freshslider.1.0.0.js"></script>
-		<script src="assets/plugins/js/moment.min.js"></script>
-		<script src="assets/plugins/js/daterangepicker.js"></script>
-		<script src="assets/plugins/js/wysihtml5-0.3.0.js"></script>
-		<script src="assets/plugins/js/bootstrap-wysihtml5.js"></script>
+		<script src="{{('assets/plugins/js/jquery.min.js')}}"></script>
+		<script src="{{('assets/plugins/js/bootstrap.min.js')}}"></script>
+		<script src="{{('assets/plugins/js/viewportchecker.js')}}"></script>
+		<script src="{{('assets/plugins/js/bootsnav.js')}}"></script>
+		<script src="{{('assets/plugins/js/slick.min.js')}}"></script>
+		<script src="{{('assets/plugins/js/jquery.nice-select.min.js')}}"></script>
+		<script src="{{('assets/plugins/js/jquery.fancybox.min.js')}}"></script>
+		<script src="{{('assets/plugins/js/jquery.downCount.js')}}"></script>
+		<script src="{{('assets/plugins/js/freshslider.1.0.0.js')}}"></script>
+		<script src="{{('assets/plugins/js/moment.min.js')}}"></script>
+		<script src="{{('assets/plugins/js/daterangepicker.js')}}"></script>
+		<script src="{{('assets/plugins/js/wysihtml5-0.3.0.js')}}"></script>
+		<script src="{{('assets/plugins/js/bootstrap-wysihtml5.js')}}"></script>
 
 		<!-- Dashboard Js -->
-		<script src="assets/plugins/js/jquery.slimscroll.min.js"></script>
-		<script src="assets/plugins/js/jquery.metisMenu.js"></script>
-		<script src="assets/plugins/js/jquery.easing.min.js"></script>
+		<script src="{{('assets/plugins/js/jquery.slimscroll.min.js')}}"></script>
+		<script src="{{('assets/plugins/js/jquery.metisMenu.js')}}"></script>
+		<script src="{{('assets/plugins/js/jquery.easing.min.js')}}"></script>
 
 		<!-- Custom Js -->
-		<script src="assets/js/custom.js"></script>
+		<script src="{{('assets/js/custom.js')}}"></script>
 
 		<script>
 			$(function () {
@@ -567,7 +567,7 @@ $(this).val('');
 });
 		</script>
 
-		<script src="assets/js/jQuery.style.switcher.js"></script>
+		<script src="{{('assets/js/jQuery.style.switcher.js')}}"></script>
 		<script>
 			function openRightMenu() {
 document.getElementById("rightMenu").style.display = "block";

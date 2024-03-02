@@ -3,3 +3,13 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+# routes.yaml
+hotel_search:
+    path: /recherche
+    controller: App\Controller\HotelController::search
+    methods: ['GET']
+
+app_hotel_pdf:
+    path: '/hotel/pdf/{id}'
+    controller: 'App\Controller\HotelController::generatePdf'
+    methods: ['GET']
